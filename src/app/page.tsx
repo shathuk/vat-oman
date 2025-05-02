@@ -29,9 +29,11 @@ export default function HomePage() {
 
   // 🔐 Redirect if not logged in
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (!token) {
-      router.push('admin/login') // redirect to login if no token
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('token')
+      if (!token) {
+        router.push('/admin/login')
+      }
     }
   }, [])
 
