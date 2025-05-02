@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import Link from 'next/link'
 import { prisma } from '../lib/prisma'
 import { FileText, Plus, Pencil, Trash2 } from 'lucide-react'
@@ -8,7 +10,6 @@ export default async function SalesPage() {
   return (
     <div className="max-w-6xl mx-auto p-6 bg-gray-50 min-h-screen">
       <div className="flex items-center justify-between mb-6">
-
         <h1 className="text-3xl font-bold text-blue-700 flex items-center gap-2">
           <FileText /> All Sales
         </h1>
