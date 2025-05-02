@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Sale {
+  id             Int      @id @default(autoincrement())
+  invoiceDate    DateTime
+  particulars    String
+  vatNumber      String
+  invoiceNumber  String
+  taxableAmount  Float
+  taxAmount      Float
+  totalAmount    Float
+  createdAt      DateTime @default(now())
+}
+
+model Purchase {
+  id             Int      @id @default(autoincrement())
+  invoiceDate    DateTime
+  particulars    String
+  vatNumber      String
+  invoiceNumber  String
+  taxableAmount  Float
+  taxAmount      Float
+  totalAmount    Float
+  createdAt      DateTime @default(now())
+}
+
+model VatReport {
+  id          Int      @id @default(autoincrement())
+  period      String
+  outputVAT   Float
+  inputVAT    Float
+  netVAT      Float
+  createdAt   DateTime @default(now())
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String   // Will be hashed
+  createdAt DateTime @default(now())
+}
+
